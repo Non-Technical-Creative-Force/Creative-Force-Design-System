@@ -11,6 +11,7 @@ DEST="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
 mkdir -p "$DEST"
 
 for skill in "$REPO"/skills/*/; do
+  [ -f "$skill/SKILL.md" ] || continue  # skills/app holds generated one-file uploads, not a linkable skill
   name="$(basename "$skill")"
   target="$DEST/$name"
 

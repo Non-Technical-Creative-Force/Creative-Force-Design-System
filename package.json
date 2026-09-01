@@ -11,9 +11,9 @@
     "./layout.css": "./patterns/layout.css"
   },
   "scripts": {
-    "build": "node tokens/build.mjs",
+    "build": "node tokens/build.mjs && node skills/app/build.mjs",
     "test": "node --test tokens/build.test.mjs",
-    "check": "npm run build && npm test && git diff --quiet -- tokens/dist || (echo 'tokens/dist is stale - commit the rebuild' && exit 1)"
+    "check": "npm run build && npm test && git diff --quiet -- tokens/dist skills/app || (echo 'tokens/dist or skills/app is stale - commit the rebuild' && exit 1)"
   },
   "engines": { "node": ">=20" }
 }

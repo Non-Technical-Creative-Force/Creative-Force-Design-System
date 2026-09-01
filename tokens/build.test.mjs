@@ -127,3 +127,15 @@ test('DESIGN.md Quick Start blocks match dist/ verbatim', () => {
     assert.ok(distLines.has(line), `DESIGN.md Quick Start drifted from dist/: "${line}"`);
   }
 });
+
+test('the app skills embed the current DESIGN.md and BRAND.md', () => {
+  const design = readFileSync(join(HERE, '..', 'DESIGN.md'), 'utf8');
+  const brand = readFileSync(join(HERE, '..', 'brand', 'BRAND.md'), 'utf8');
+  for (const skill of ['cf-design', 'cf-design-review']) {
+    const app = readFileSync(join(HERE, '..', 'skills', 'app', `${skill}.md`), 'utf8');
+    assert.ok(app.startsWith(`---\nname: ${skill}\n`), `${skill}.md frontmatter`);
+    assert.ok(app.includes(design), `${skill}.md is stale - run node skills/app/build.mjs`);
+    assert.ok(app.includes(brand), `${skill}.md is missing BRAND.md`);
+    assert.equal(app.includes('$ROOT'), false, `${skill}.md leaks repo-only paths`);
+  }
+});

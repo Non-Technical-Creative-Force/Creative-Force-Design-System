@@ -97,9 +97,29 @@ Once the skills are installed, just talk to Claude in plain language:
   `cf-design-review` skill audits it and reports what's off, ranked by severity.
 - *"What colour should this button be?"* — you'll get the token, not a guess.
 
-## On claude.ai (the website — no apps, no terminal)
+## In the Claude app (Customize → Skills — no terminal)
 
-1. Go to **claude.ai** and create a **Project**.
+The Claude desktop app and claude.ai can load the brand as an uploaded skill.
+This folder ships ready-made one-file versions in `skills/app/` — the whole spec
+is embedded inside them, so chats know the brand even without this folder.
+
+1. Open the **Claude app** (or claude.ai in your browser).
+2. In the left sidebar, click **Customize**.
+3. Click **Skills**, then **Upload a skill**.
+4. Drag **`skills/app/cf-design.md`** from this folder into the
+   *"Drag and drop your skill file here"* box (or click **browse** and pick it).
+5. Click **Save**. A security scan runs automatically — that's normal.
+6. Repeat steps 3–5 with **`skills/app/cf-design-review.md`**.
+
+Done — now any chat understands *"build me an on-brand hero"* (cf-design) and
+*"is this on brand?"* (cf-design-review). When this folder gets an update, upload
+the two files again to refresh them.
+
+## On claude.ai without any upload
+
+No folder, no skills — just give a chat the spec directly:
+
+1. On **claude.ai**, create a **Project**.
 2. Upload `DESIGN.md` (and `brand/BRAND.md` if you'll work with logos or
    illustrations) to the project's knowledge.
 3. Every chat in that project now knows the brand — just ask.
@@ -117,7 +137,7 @@ For a one-off chat, attach `DESIGN.md` to the message instead.
 | `tokens/dist/` | Ready-made files generated from it: CSS, SCSS, JS, Tailwind v4, Figma. |
 | `patterns/layout.css` | The spatial system. Framework-free. |
 | `patterns/demo.html` | Every token and component rendered. **Open it in a browser to see the brand.** |
-| `skills/` | The two Claude Code skills installed by `./install.sh`. |
+| `skills/` | The two Claude Code skills installed by `./install.sh`, plus `skills/app/` — the one-file versions you upload to the Claude app. |
 
 ## For developers
 
