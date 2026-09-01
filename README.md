@@ -2,7 +2,7 @@
 
 Everything that defines how Creative Force looks — colours, type, spacing, logo,
 icons, components — written down in files that both people and AI assistants can
-read. Nothing to install, no coding required to use it.
+read. No coding required to use it.
 
 ## The 30-second version
 
@@ -16,46 +16,68 @@ Read DESIGN.md in this folder, then build me a landing page hero.
 starts from real Creative Force constraints instead of generic defaults. That one
 prompt is genuinely all you need — everything below is detail.
 
-## Using it with Claude
+## One-time setup: teach Claude the brand
 
-### In Claude Code (terminal, desktop app, or IDE)
+Install the two Creative Force skills once, and **every** Claude Code session on
+your computer knows the brand automatically — no more "read DESIGN.md first".
 
-**One-time setup — install the skills.** Open a terminal, go to this folder, and run:
+### The easy way — let Claude install it for you
 
-```bash
-./install.sh
+1. Open the **Claude Code app** (or Claude Code in your terminal or editor).
+2. Open **this folder** in it (in the desktop app: pick this folder when it asks
+   where to work; in a terminal: start `claude` from inside this folder).
+3. Type this message and press Enter:
+
+   ```
+   Run ./install.sh
+   ```
+
+4. If Claude asks for permission to run it, say yes.
+5. You'll see two lines like `linked cf-design` and `linked cf-design-review`.
+   That's it — you're done.
+
+### The manual way — Terminal on a Mac
+
+1. Press **⌘ + Space**, type `Terminal`, press **Return**.
+2. Type `cd ` (c, d, then one space) — **don't press Return yet.**
+3. Drag this folder from Finder onto the Terminal window (the path appears
+   automatically), **now** press **Return**.
+4. Type `./install.sh` and press **Return**.
+5. You'll see `linked cf-design` and `linked cf-design-review`. Done.
+
+The script only makes links, not copies — the skills stay up to date when this
+folder changes, and it's safe to run again any time.
+
+### Check that it worked
+
+Open any Claude Code session (any folder, doesn't matter) and ask:
+
+```
+Make me an on-brand Creative Force button.
 ```
 
-This links the two Creative Force skills into Claude's skills folder (it makes
-links, not copies, so they stay up to date when this repo changes — safe to re-run
-any time). From then on, **every** Claude Code session on your machine knows the
-brand automatically:
+If the answer talks about a blue pill (`#435CFF`), Inter at weight 500 and no
+shadow — it worked.
 
-- Ask for something new — *"build me an on-brand pricing section"*, *"make this
-  page match the Creative Force brand"* — and the `cf-design` skill loads the
+## What you can ask for
+
+Once the skills are installed, just talk to Claude in plain language:
+
+- *"Build me an on-brand pricing section."* — the `cf-design` skill loads the
   colours, type and rules before a line is written.
-- Ask for a check — *"is this on brand?"*, *"review this page against our design
-  system"* — and `cf-design-review` audits it and reports what's off, ranked by
-  severity.
+- *"Make this page match the Creative Force brand."*
+- *"Is this on brand?"* — with a screenshot or file attached — the
+  `cf-design-review` skill audits it and reports what's off, ranked by severity.
+- *"What colour should this button be?"* — you'll get the token, not a guess.
 
-Skipped the setup? No problem — start your request with *"Read DESIGN.md in this
-folder first"* and it works the same for that session.
+## On claude.ai (the website — no apps, no terminal)
 
-### On claude.ai (the website — no terminal needed)
-
-1. Create a **Project** on claude.ai.
+1. Go to **claude.ai** and create a **Project**.
 2. Upload `DESIGN.md` (and `brand/BRAND.md` if you'll work with logos or
    illustrations) to the project's knowledge.
 3. Every chat in that project now knows the brand — just ask.
 
 For a one-off chat, attach `DESIGN.md` to the message instead.
-
-### Prompts that work well
-
-- *"Build me a hero section for Creative Force."*
-- *"Design an on-brand slide layout for a customer deck."*
-- *"Is this on brand?"* — with a screenshot or file attached
-- *"What colour should this button be?"* — you'll get the token, not a guess
 
 ## What's in here
 
