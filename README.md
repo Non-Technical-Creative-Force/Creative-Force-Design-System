@@ -48,7 +48,7 @@ git clone https://github.com/Non-Technical-Creative-Force/Creative-Force-Design-
 Install the two Creative Force skills once, and **every** Claude Code session on
 your computer knows the brand automatically — no more "read DESIGN.md first".
 
-### The easy way — let Claude install it for you
+### The easy way — let Claude Code install it for you
 
 1. Open the **Claude Code app** (or Claude Code in your terminal or editor).
 2. Open **this folder** in it (in the desktop app: pick this folder when it asks
@@ -62,40 +62,6 @@ your computer knows the brand automatically — no more "read DESIGN.md first".
 4. If Claude asks for permission to run it, say yes.
 5. You'll see two lines like `linked cf-design` and `linked cf-design-review`.
    That's it — you're done.
-
-### The manual way — Terminal on a Mac
-
-1. Press **⌘ + Space**, type `Terminal`, press **Return**.
-2. Type `cd ` (c, d, then one space) — **don't press Return yet.**
-3. Drag this folder from Finder onto the Terminal window (the path appears
-   automatically), **now** press **Return**.
-4. Type `./install.sh` and press **Return**.
-5. You'll see `linked cf-design` and `linked cf-design-review`. Done.
-
-The script only makes links, not copies — the skills stay up to date when this
-folder changes, and it's safe to run again any time.
-
-### Check that it worked
-
-Open any Claude Code session (any folder, doesn't matter) and ask:
-
-```
-Make me an on-brand Creative Force button.
-```
-
-If the answer talks about a blue pill (`#435CFF`), Inter at weight 500 and no
-shadow — it worked.
-
-## What you can ask for
-
-Once the skills are installed, just talk to Claude in plain language:
-
-- *"Build me an on-brand pricing section."* — the `cf-design` skill loads the
-  colours, type and rules before a line is written.
-- *"Make this page match the Creative Force brand."*
-- *"Is this on brand?"* — with a screenshot or file attached — the
-  `cf-design-review` skill audits it and reports what's off, ranked by severity.
-- *"What colour should this button be?"* — you'll get the token, not a guess.
 
 ## In the Claude app (Customize → Skills — no terminal)
 
@@ -125,6 +91,43 @@ No folder, no skills — just give a chat the spec directly:
 3. Every chat in that project now knows the brand — just ask.
 
 For a one-off chat, attach `DESIGN.md` to the message instead.
+
+### The manual way — Terminal on a Mac
+
+1. Press **⌘ + Space**, type `Terminal`, press **Return**.
+2. Type `cd ` (c, d, then one space) — **don't press Return yet.**
+3. Drag this folder from Finder onto the Terminal window (the path appears
+   automatically), **now** press **Return**.
+4. Type `./install.sh` and press **Return**.
+5. You'll see `linked cf-design` and `linked cf-design-review`. Done.
+
+The script only makes links, not copies — the skills stay up to date when this
+folder changes, and it's safe to run again any time.
+
+
+
+
+### Check that it worked
+
+Open any Claude Code session (any folder, doesn't matter) and ask:
+
+```
+Make me an on-brand Creative Force button.
+```
+
+If the answer talks about a blue pill (`#435CFF`), Inter at weight 500 and no
+shadow — it worked.
+
+## What you can ask for
+
+Once the skills are installed, just talk to Claude in plain language:
+
+- *"Build me an on-brand pricing section."* — the `cf-design` skill loads the
+  colours, type and rules before a line is written.
+- *"Make this page match the Creative Force brand."*
+- *"Is this on brand?"* — with a screenshot or file attached — the
+  `cf-design-review` skill audits it and reports what's off, ranked by severity.
+- *"What colour should this button be?"* — you'll get the token, not a guess.
 
 ## What's in here
 
