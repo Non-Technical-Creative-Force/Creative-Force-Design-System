@@ -77,6 +77,10 @@ is embedded inside them, so chats know the brand even without this folder.
 5. Click **Save**. A security scan runs automatically — that's normal.
 6. Repeat steps 3–5 with **`skills/app/cf-design-review.md`**.
 
+This is the screen you're looking for:
+
+![The Upload a skill screen — drag the file into the dashed box, then click Save](docs/img/upload-skill.png)
+
 Done — now any chat understands *"build me an on-brand hero"* (cf-design) and
 *"is this on brand?"* (cf-design-review). When this folder gets an update, upload
 the two files again to refresh them.
