@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <!-- Figma's noise fill from NUMBERS (1298:12129), lifted verbatim from the
+       node's own SVG export: fractalNoise thresholded to a band and flooded
+       with #A79D90. Kept at 1 turbulence cycle per user unit, so painting this
+       tile at 120x120 CSS px reproduces the grain at its designed size.
+       stitchTiles makes the tile seamless when it repeats.
+
+       SOURCE ONLY — the stat numerals loads numeral-noise.png, baked from this file at 240px.
+       At 1 device px per user unit the turbulence aliases to a flat field and
+       the speckle disappears (Safari, and any 1x display in any browser).
+         rsvg-convert -w 240 -h 240 numeral-noise.svg -o numeral-noise.png -->
+  <filter id="cf-numeral-noise" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="1 1" numOctaves="3" seed="905" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise"/>
+    <feComponentTransfer in="alphaNoise" result="speckle">
+      <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    </feComponentTransfer>
+    <feFlood flood-color="#A79D90" result="grainColor"/>
+    <feComposite operator="in" in="grainColor" in2="speckle"/>
+  </filter>
+  <rect width="120" height="120" filter="url(#cf-numeral-noise)"/>
+</svg>

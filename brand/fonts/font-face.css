@@ -1,0 +1,21 @@
+/* Self-hosted Inter Variable.
+ *
+ * The family is named InterVariable, NOT Inter, so it cannot collide with a
+ * host platform's own Google Fonts emit. --cf-font-family-sans lists it first
+ * and falls through to Inter behind it: a browser without variable-font support
+ * skips this @font-face entirely and picks up the fallback.
+ */
+@font-face {
+  font-family: 'InterVariable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./InterVariable.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'InterVariable';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./InterVariable-Italic.woff2') format('woff2-variations');
+}

@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creative Force — design system</title>
+
+<link rel="stylesheet" href="../brand/fonts/font-face.css">
+<link rel="stylesheet" href="../tokens/dist/tokens.css">
+<link rel="stylesheet" href="./layout.css">
+
+<style>
+  /* This page is built only from the tokens. If something here looks wrong,
+     the tokens are wrong - that is the point of the page. */
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--cf-font-family-sans);
+    font-size: var(--cf-type-body-size);
+    line-height: var(--cf-type-body-line-height);
+    color: var(--cf-color-text-default);
+    background: var(--cf-color-surface-page);
+    -webkit-font-smoothing: antialiased;
+  }
+  @supports (font-variation-settings: normal) {
+    :root { font-optical-sizing: auto; font-feature-settings: 'cv01'; font-variant-ligatures: contextual; }
+  }
+
+  .cf-eyebrow {
+    margin: 0;
+    font-size: var(--cf-type-eyebrow-size);
+    font-weight: var(--cf-type-eyebrow-weight);
+    line-height: var(--cf-type-eyebrow-line-height);
+    letter-spacing: var(--cf-type-eyebrow-tracking);
+    text-transform: uppercase;
+  }
+  .cf-heading {
+    margin: 0;
+    font-size: var(--cf-type-section-h-size);
+    font-weight: var(--cf-type-section-h-weight);
+    line-height: var(--cf-type-section-h-line-height);
+    letter-spacing: var(--cf-type-section-h-tracking);
+  }
+
+  section { padding-block: var(--cf-layout-section-pad); }
+  section + section { border-block-start: 1px solid var(--cf-color-border-default); }
+  .head { display: grid; gap: var(--cf-space-5); margin-block-end: var(--cf-space-12); }
+  .head p { margin: 0; max-inline-size: 52ch; color: var(--cf-color-text-muted); }
+  .head:last-child { margin-block-end: 0; }
+  .warm { background: var(--cf-color-surface-card); }
+
+  /* colour ---------------------------------------------------------------- */
+  .swatches { display: grid; gap: var(--cf-space-4);
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+  .sw { display: grid; gap: var(--cf-space-2); }
+  .sw i {
+    display: block; block-size: 4.5rem; border-radius: var(--cf-radius-md);
+    border: 1px solid var(--cf-color-border-default);
+  }
+  .sw b { font-size: var(--cf-type-body-sm-size); font-weight: var(--cf-font-weight-medium); }
+  .sw code {
+    font-size: var(--cf-type-badge-size); letter-spacing: var(--cf-type-badge-tracking);
+    color: var(--cf-color-text-muted); font-family: ui-monospace, SFMono-Regular, monospace;
+  }
+
+  /* type ------------------------------------------------------------------ */
+  .ladder { display: grid; gap: var(--cf-space-8); }
+  .rung { display: grid; grid-template-columns: 11rem 1fr; gap: var(--cf-space-6);
+    align-items: baseline; }
+  .rung > code {
+    font-size: var(--cf-type-badge-size); letter-spacing: var(--cf-type-badge-tracking);
+    text-transform: uppercase; color: var(--cf-color-text-muted);
+    font-family: ui-monospace, SFMono-Regular, monospace;
+  }
+  .rung > span { display: block; }
+  @media (max-width: 640px) { .rung { grid-template-columns: 1fr; } }
+
+  /* components ------------------------------------------------------------ */
+  .cf-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: var(--cf-space-2);
+    font-family: var(--cf-type-button-family);
+    font-size: var(--cf-type-button-size);
+    font-weight: var(--cf-type-button-weight);
+    line-height: var(--cf-type-button-line-height);
+    padding: var(--cf-button-pad-block) var(--cf-button-pad-inline);
+    border: 0; border-radius: var(--cf-radius-pill);
+    background: var(--cf-color-blue); color: var(--cf-color-white);
+    text-decoration: none; cursor: pointer;
+    /* No shadow, no lift, no scale. The pill is the whole gesture. */
+    transition:
+      background var(--cf-motion-duration-base) var(--cf-motion-easing-standard),
+      color var(--cf-motion-duration-base) var(--cf-motion-easing-standard);
+  }
+  .cf-btn:hover { background: var(--cf-color-accent-hover); }
+
+  .cf-btn--secondary {
+    background: transparent; color: var(--cf-color-black);
+    border: var(--cf-button-border-width) solid var(--cf-color-black);
+  }
+  .cf-btn--secondary:hover { background: var(--cf-color-black); color: var(--cf-color-white); }
+
+  .cf-btn--text, .cf-btn--text-accent {
+    padding: 0; border: 0; border-radius: 0; background: none;
+    border-block-end: 2px solid currentColor;
+    padding-block-end: var(--cf-button-underline-offset);
+    color: var(--cf-color-black);
+  }
+  .cf-btn--text-accent { color: var(--cf-color-blue); }
+  .cf-btn--text:hover, .cf-btn--text-accent:hover { background: none; opacity: .7; }
+
+  .btn-row { display: flex; flex-wrap: wrap; gap: var(--cf-space-6); align-items: center; }
+
+  .cf-card {
+    background: var(--cf-color-surface-card);
+    border: 1px solid var(--cf-color-border-default);
+    border-radius: var(--cf-radius-md);
+    padding: var(--cf-space-8);
+    display: grid; gap: var(--cf-space-3); align-content: start;
+    transition:
+      box-shadow var(--cf-motion-duration-lift) var(--cf-motion-easing-standard),
+      transform var(--cf-motion-duration-lift) var(--cf-motion-easing-standard);
+  }
+  .warm .cf-card { background: var(--cf-color-surface-raised); }
+  .cf-card:hover { box-shadow: var(--cf-shadow-default); transform: translateY(-2px); }
+  .cf-card h3 {
+    margin: 0; font-size: var(--cf-type-card-title-size);
+    font-weight: var(--cf-type-card-title-weight);
+    line-height: var(--cf-type-card-title-line-height);
+    letter-spacing: var(--cf-type-card-title-tracking);
+  }
+  .cf-card p { margin: 0; font-size: var(--cf-type-body-sm-size); color: var(--cf-color-text-muted); }
+
+  .cf-badge {
+    justify-self: start; background: var(--cf-color-white); color: var(--cf-color-blue);
+    border-radius: var(--cf-radius-pill); padding: 3px 8px;
+    font-size: var(--cf-type-badge-size); font-weight: var(--cf-type-badge-weight);
+    letter-spacing: var(--cf-type-badge-tracking); text-transform: uppercase;
+  }
+
+  .cf-card--dark,
+  .warm .cf-card--dark { background: var(--cf-color-surface-dark); border-color: var(--cf-color-border-on-dark); color: var(--cf-color-text-on-dark); }
+  .cf-card--dark p { color: var(--cf-color-text-on-dark-mut); }
+
+  .stat-panel {
+    background: var(--cf-color-surface-card);
+    border-radius: var(--cf-radius-md);
+    padding: var(--cf-space-12) var(--cf-space-8);
+  }
+  .stat { display: grid; gap: var(--cf-space-2); }
+  .stat b {
+    font-size: var(--cf-type-fluid-stat); font-weight: var(--cf-font-weight-heavy);
+    line-height: var(--cf-type-stat-line-height); letter-spacing: var(--cf-type-stat-tracking);
+    color: var(--cf-color-surface-raised);
+  }
+
+  .logo-wall {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--cf-color-surface-edge);
+    border: 1px solid var(--cf-color-surface-edge);
+    border-radius: var(--cf-radius-md); overflow: hidden;
+  }
+  .logo-wall div {
+    background: var(--cf-color-surface-card); min-block-size: 100px;
+    display: grid; place-items: center; padding: var(--cf-space-4);
+  }
+  .logo-wall img { max-inline-size: 68%; max-block-size: 38px; }
+
+  .icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+    gap: var(--cf-space-4); }
+  .icons figure { margin: 0; display: grid; gap: var(--cf-space-2); justify-items: center; text-align: center; }
+  .icons img { inline-size: 24px; block-size: 24px; }
+  .icons figcaption { font-size: 10px; color: var(--cf-color-text-muted); overflow-wrap: anywhere; }
+
+  .cubes { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: var(--cf-space-6); }
+  .cubes figure { margin: 0; display: grid; gap: var(--cf-space-3); }
+  .cubes img { inline-size: 100%; block-size: auto; }
+  .cubes figcaption { font-size: var(--cf-type-body-sm-size); color: var(--cf-color-text-muted); }
+
+  :focus-visible {
+    outline: 2px solid var(--cf-color-blue);
+    outline-offset: 2px;
+    border-radius: var(--cf-radius-focus);
+  }
+  ::selection { background: var(--cf-color-blue-tint-25); color: var(--cf-color-black); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important; scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="cf-shell">
+  <div class="head">
+    <img src="../brand/logo/creative-force-secondary-black.svg" alt="Creative Force" style="inline-size:220px">
+    <p class="cf-eyebrow">The design system</p>
+    <h1 class="cf-heading" style="font-size:var(--cf-type-fluid-display)">Every value on this page comes from a token</h1>
+    <p>Nothing here is a literal. If a colour, size or curve looks wrong, the fix is in
+       <code>tokens/tokens.json</code> — not in this file. Read <code>DESIGN.md</code> before you build.</p>
+    <div class="btn-row">
+      <a class="cf-btn" href="#">Primary Button</a>
+      <a class="cf-btn cf-btn--secondary" href="#">Secondary Button</a>
+      <a class="cf-btn cf-btn--text" href="#">Text Button</a>
+      <a class="cf-btn cf-btn--text-accent" href="#">Text Button</a>
+    </div>
+  </div>
+</section>
+
+<section class="cf-shell">
+  <div class="head"><p class="cf-eyebrow">01 — Colour</p><h2 class="cf-heading">Semantic roles first</h2>
+  <p>Reach for a role, not a hue. The stone ramp is the warm neutral spine; blue is the one accent, roughly three uses per view.</p></div>
+  <div class="swatches" id="swatches"></div>
+</section>
+
+<section class="cf-shell">
+  <div class="head"><p class="cf-eyebrow">02 — Typography</p><h2 class="cf-heading">Inter, and one ladder</h2>
+  <p>Size, weight, line-height and tracking travel together, so 44px cannot be applied at the wrong weight. Headings are 600, never 700.</p></div>
+  <div class="ladder" id="ladder"></div>
+</section>
+
+<section class="warm">
+  <div class="cf-shell">
+    <div class="head"><p class="cf-eyebrow">03 — Cards on a warm band</p><h2 class="cf-heading">Surfaces are flat fills</h2>
+    <p>A card on a warm band is <code>surface-raised</code>. No grain, no gradient, no overlay — the texture belongs inside shapes, never behind them.</p></div>
+    <div class="cf-ram">
+      <article class="cf-card"><span class="cf-badge">Orchestration</span><h3>Workflows</h3>
+        <p>Every step of production connected in one workflow, from brief to delivery.</p></article>
+      <article class="cf-card"><span class="cf-badge">Agentic</span><h3>Product tagging</h3>
+        <p>AI reads every product image and applies attribute tags automatically.</p></article>
+      <article class="cf-card cf-card--dark"><span class="cf-badge">Governance</span><h3>Style guides</h3>
+        <p>Rules travel with every asset. The heading inherits its surface — no colour override needed.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="cf-shell">
+  <div class="head"><p class="cf-eyebrow">04 — Data is quiet</p><h2 class="cf-heading">One hero number, not a strip</h2>
+  <p>110px is reserved for a single moment per page. A four-up band of huge white numerals on black is the cliché this brand is defined against.</p></div>
+  <div class="stat-panel cf-ram">
+    <div class="stat"><b>22s</b><span class="cf-eyebrow">average response time</span></div>
+    <div class="stat"><b>99%</b><span class="cf-eyebrow">positive CSAT rating</span></div>
+    <div class="stat"><b>25+</b><span class="cf-eyebrow">studio experts</span></div>
+  </div>
+</section>
+
+<section class="cf-shell">
+  <div class="head"><p class="cf-eyebrow">05 — Illustration</p><h2 class="cf-heading">The cube states mean something</h2>
+  <p>Neutral is <em>before</em>. Solid blue is <em>activated</em>. Ghost is <em>potential</em>. Never scatter them as decoration.</p></div>
+  <div class="cubes" id="cubes"></div>
+</section>
+
+<section class="warm">
+  <div class="cf-shell">
+    <div class="head"><p class="cf-eyebrow">06 — Logo wall</p><h2 class="cf-heading">The gaps are the rules</h2>
+    <p>1px grid gaps expose the edge colour underneath. Logos cap at 68% wide and 38px tall so unlike marks read at one optical weight.</p></div>
+    <div class="logo-wall">
+      <div><img src="../brand/logo/creative-force-secondary-black.svg" alt=""></div>
+      <div><img src="../brand/logo/creative-force-primary-black.svg" alt=""></div>
+      <div><img src="../brand/logo/creative-force-mark-black.svg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="cf-shell">
+  <div class="head"><p class="cf-eyebrow">07 — Icons</p><h2 class="cf-heading">Streamline Core Line, one style</h2>
+  <p>Thin even stroke, <code>currentColor</code>, 20–24px. Never Font Awesome, never Heroicons, never emoji.</p></div>
+  <div class="icons" id="icons"></div>
+</section>
+
+<section class="cf-shell">
+  <div class="head"><p class="cf-eyebrow">08 — Layout</p><h2 class="cf-heading">Opt out to go wide</h2>
+  <p>Everything is measure-capped by default. The <code>data-w</code> attribute is how a block escapes.</p></div>
+  <div class="layout" style="background:var(--cf-color-surface-card);border-radius:var(--cf-radius-md);padding-block:var(--cf-space-8)">
+    <p>This paragraph sits in the <code>content</code> track — capped at the reading measure, <code>clamp(45ch, 60vw, 68ch)</code>, tuned to Inter. It is the default, so it needs no attribute.</p>
+    <div data-w="popout" style="background:var(--cf-color-surface-raised);border-radius:var(--cf-radius-sm);padding:var(--cf-space-4)">
+      <code>data-w="popout"</code> — one deliberate step wider.</div>
+    <div data-w="feature" style="background:var(--cf-color-surface-edge);border-radius:var(--cf-radius-sm);padding:var(--cf-space-4)">
+      <code>data-w="feature"</code> — a bigger step, for media.</div>
+    <div data-w="full" style="background:var(--cf-color-black);color:var(--cf-color-white);padding:var(--cf-space-4)">
+      <code>data-w="full"</code> — gutter to gutter.</div>
+  </div>
+</section>
+
+<script type="module">
+import { names } from '../tokens/dist/tokens.js';
+
+const root = getComputedStyle(document.documentElement);
+const value = (name) => root.getPropertyValue(`--cf-${name}`).trim();
+
+const el = (html) => Object.assign(document.createElement('div'), { innerHTML: html }).firstElementChild;
+
+// Colour — every token whose name starts with color-, in source order.
+const swatches = document.getElementById('swatches');
+for (const name of names.filter((n) => n.startsWith('color-'))) {
+  const v = value(name);
+  swatches.append(el(`<div class="sw">
+    <i style="background:${v}"></i>
+    <b>${name.slice(6)}</b><code>${v}</code></div>`));
+}
+
+// Type — one rung per composite token.
+const LADDER = ['display', 'section-h', 'subhead', 'card-title', 'lead', 'body', 'body-sm', 'prose', 'eyebrow', 'badge'];
+const ladder = document.getElementById('ladder');
+for (const style of LADDER) {
+  const p = `--cf-type-${style}`;
+  ladder.append(el(`<div class="rung">
+    <code>${p}</code>
+    <span style="font-size:var(${p}-size);font-weight:var(${p}-weight);line-height:var(${p}-line-height);letter-spacing:var(${p}-tracking);text-transform:var(${p}-case, none)">
+      Run studio, hybrid and AI production as one
+    </span></div>`));
+}
+
+// Illustration.
+const CUBES = [['box-single-neutral', 'Neutral — before'], ['box-single-blue', 'Activated — realised'],
+               ['box-stacked-light', 'Ghost — potential'], ['box-stacked-blue', 'Activated, stacked'],
+               ['cube-empty', 'Empty'], ['cube-half', 'In transition'], ['cube-full', 'Full']];
+const cubes = document.getElementById('cubes');
+for (const [file, label] of CUBES) {
+  cubes.append(el(`<figure><img src="../brand/illustrations/${file}.svg" alt="">
+    <figcaption>${label}</figcaption></figure>`));
+}
+
+// Icons.
+const SM = ['ai-chat','arrow','arrow-left','arrow-right','check','path','play','support','talk'];
+const MD = ['workflow','pipeline','generative-ai','data-management','style-guide','intelligence',
+            'planning','reporting','sample-management','share-for-review','task-assignment',
+            'talent-management','ecommerce-fashion','cloud-architecture','gateway-api','contact-sheet',
+            'color-swatches','model-motion','video','video-share','photo','copy','tracking','vendor',
+            'community','headache','support-2','data-management-2'];
+const icons = document.getElementById('icons');
+for (const [dir, list] of [['sm', SM], ['md', MD]]) {
+  for (const name of list) {
+    icons.append(el(`<figure><img src="../brand/icons/${dir}/${name}.svg" alt="">
+      <figcaption>${name}</figcaption></figure>`));
+  }
+}
+</script>
+</body>
+</html>

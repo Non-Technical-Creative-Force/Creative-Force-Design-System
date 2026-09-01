@@ -1,0 +1,102 @@
+/*
+ * Creative Force design tokens - GENERATED, do not edit.
+ * Source: tokens/tokens.json  ->  node tokens/build.mjs
+ *
+ * Tailwind v4. Import after tailwindcss:
+ *   @import "tailwindcss";
+ *   @import "../tokens/dist/tailwind.css";
+ */
+
+@import "./tokens.css";
+
+@theme {
+
+  /* colors -> bg-cf-blue, text-cf-text-muted, border-cf-border-default */
+  --color-cf-blue: #435CFF;
+  --color-cf-black: #000000;
+  --color-cf-white: #FFFFFF;
+  --color-cf-stone-100: #F1EFEA;
+  --color-cf-stone-200: #E4DFD9;
+  --color-cf-stone-300: #D2CAC1;
+  --color-cf-stone-400: #B5ACA0;
+  --color-cf-stone-500: #90867A;
+  --color-cf-sage-300: #BCC2AF;
+  --color-cf-sage-400: #9CA28E;
+  --color-cf-green: #686F5C;
+  --color-cf-yellow: #F8E198;
+  --color-cf-accent-hover: #3C53E6;
+  --color-cf-accent-active: #374BD1;
+  --color-cf-accent-focus: rgba(67, 92, 255, 0.32);
+  --color-cf-accent-disabled: rgba(67, 92, 255, 0.38);
+  --color-cf-blue-tint-10: rgba(67, 92, 255, 0.1);
+  --color-cf-blue-tint-25: rgba(67, 92, 255, 0.25);
+  --color-cf-surface-page: #FFFFFF;
+  --color-cf-surface-card: #F1EFEA;
+  --color-cf-surface-raised: #E4DFD9;
+  --color-cf-surface-edge: #D2CAC1;
+  --color-cf-surface-dark: #000000;
+  --color-cf-text-default: #000000;
+  --color-cf-text-muted: #5F5F5F;
+  --color-cf-text-on-dark: #FFFFFF;
+  --color-cf-text-on-dark-mut: rgba(255, 255, 255, 0.65);
+  --color-cf-text-link: #435CFF;
+  --color-cf-border-default: rgba(0, 0, 0, 0.08);
+  --color-cf-border-on-dark: rgba(255, 255, 255, 0.12);
+  --color-cf-iso-potential: #E5E9FF;
+  --color-cf-grain-fade: rgba(242, 240, 236, 0);
+
+  /* spacing -> p-cf-4, gap-cf-8 */
+  --spacing-cf-1: 4px;
+  --spacing-cf-2: 8px;
+  --spacing-cf-3: 12px;
+  --spacing-cf-4: 16px;
+  --spacing-cf-5: 20px;
+  --spacing-cf-6: 24px;
+  --spacing-cf-8: 32px;
+  --spacing-cf-10: 40px;
+  --spacing-cf-12: 48px;
+  --spacing-cf-16: 64px;
+  --spacing-cf-24: 96px;
+
+  /* radius -> rounded-cf-md */
+  --radius-cf-sm: 8px;
+  --radius-cf-md: 12px;
+  --radius-cf-lg: 16px;
+  --radius-cf-pill: 100px;
+  --radius-cf-focus: 4px;
+
+  /* shadow -> shadow-cf-accent */
+  --shadow-cf-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-cf-default: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --shadow-cf-focus-ring: 0 0 0 3px rgba(144, 134, 122, 0.1);
+
+  /* type sizes -> text-cf-display */
+  --text-cf-display: 2.75rem;
+  --text-cf-section-h: 2rem;
+  --text-cf-subhead: 1.5rem;
+  --text-cf-card-title: 1.125rem;
+  --text-cf-lead: 1.25rem;
+  --text-cf-body: 1rem;
+  --text-cf-body-sm: 0.875rem;
+  --text-cf-prose: 1rem;
+  --text-cf-button: 1rem;
+  --text-cf-eyebrow: 0.75rem;
+  --text-cf-badge: 0.625rem;
+  --text-cf-stat: 6.875rem;
+
+  /* fonts -> font-cf-sans, font-cf-semibold */
+  --font-cf-sans: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-weight-cf-regular: 400;
+  --font-weight-cf-medium: 500;
+  --font-weight-cf-semibold: 600;
+  --font-weight-cf-bold: 700;
+  --font-weight-cf-heavy: 800;
+
+  /* easings -> ease-cf-standard. Durations stay plain custom properties
+     (Tailwind v4 has no duration theme namespace) - use var(--cf-motion-duration-base). */
+  --ease-cf-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cf-slide: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-cf-turn: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Every token is also a plain --cf-* custom property via the import above. */

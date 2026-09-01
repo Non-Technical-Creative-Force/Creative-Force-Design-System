@@ -1,0 +1,239 @@
+/*
+ * Creative Force design tokens - GENERATED, do not edit.
+ * Source: tokens/tokens.json  ->  node tokens/build.mjs
+ */
+
+:root {
+
+  /* color */
+  /* The one accent. About three uses per view. */
+  --cf-color-blue: #435CFF;
+  --cf-color-black: #000000;
+  --cf-color-white: #FFFFFF;
+  --cf-color-stone-100: #F1EFEA;
+  --cf-color-stone-200: #E4DFD9;
+  --cf-color-stone-300: #D2CAC1;
+  --cf-color-stone-400: #B5ACA0;
+  /* Brand-guide 'Brown'. Labels and dividers - never running body copy, it fails AA at 14px. */
+  --cf-color-stone-500: #90867A;
+  --cf-color-sage-300: #BCC2AF;
+  --cf-color-sage-400: #9CA28E;
+  /* STATE ONLY - positive. There is no brand red; this carries 'good'. Never a surface, never decoration. Absent from the Figma homepage by design. */
+  --cf-color-green: #686F5C;
+  /* STATE ONLY - caution. Same rules as green. */
+  --cf-color-yellow: #F8E198;
+  --cf-color-accent-hover: #3C53E6;
+  --cf-color-accent-active: #374BD1;
+  --cf-color-accent-focus: rgba(67, 92, 255, 0.32);
+  --cf-color-accent-disabled: rgba(67, 92, 255, 0.38);
+  /* The lightest blue wash. */
+  --cf-color-blue-tint-10: rgba(67, 92, 255, 0.1);
+  /* Text selection. */
+  --cf-color-blue-tint-25: rgba(67, 92, 255, 0.25);
+  /* Default page ground. */
+  --cf-color-surface-page: #FFFFFF;
+  /* Cards, and the warm editorial band. */
+  --cf-color-surface-card: #F1EFEA;
+  /* A card sitting on a warm band. */
+  --cf-color-surface-raised: #E4DFD9;
+  /* Hairlines, rules, logo-wall gaps, and the grain flood colour. */
+  --cf-color-surface-edge: #D2CAC1;
+  /* Footer panel, dark card variants. Never decoration. */
+  --cf-color-surface-dark: #000000;
+  --cf-color-text-default: #000000;
+  /* A black-ramp shade, deliberately not stone-500. Keeps 14px copy at AA on white and on warm surfaces. */
+  --cf-color-text-muted: #5F5F5F;
+  --cf-color-text-on-dark: #FFFFFF;
+  --cf-color-text-on-dark-mut: rgba(255, 255, 255, 0.65);
+  --cf-color-text-link: #435CFF;
+  /* Card outlines. A visible rule uses surface.edge instead. */
+  --cf-color-border-default: rgba(0, 0, 0, 0.08);
+  --cf-color-border-on-dark: rgba(255, 255, 255, 0.12);
+  /* The ghost cube - potential, not yet realised. The illustration language's other three states are stone.100 (before), blue (activated) and black (edges); see BRAND.md. */
+  --cf-color-iso-potential: #E5E9FF;
+  /* Transparent warm. The far stop of a fade out of a warm surface - a plain transparent shifts hue on the way. */
+  --cf-color-grain-fade: rgba(242, 240, 236, 0);
+
+  /* font */
+  /* Inter everywhere. Self-hosted variable first; the family is named InterVariable so it cannot collide with a Google Fonts emit. */
+  --cf-font-family-sans: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-font-weight-regular: 400;
+  --cf-font-weight-medium: 500;
+  /* Headings. Not 700 - measured in Figma at 44px. */
+  --cf-font-weight-semibold: 600;
+  /* Hero display and article title only. */
+  --cf-font-weight-bold: 700;
+  /* Oversized stat numerals only. */
+  --cf-font-weight-heavy: 800;
+
+  /* type */
+  --cf-type-display-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-display-size: 2.75rem;
+  --cf-type-display-weight: 600;
+  --cf-type-display-line-height: 1.2;
+  --cf-type-display-tracking: -0.03em;
+  --cf-type-section-h-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-section-h-size: 2rem;
+  --cf-type-section-h-weight: 600;
+  --cf-type-section-h-line-height: 1.2;
+  --cf-type-section-h-tracking: -0.03em;
+  --cf-type-subhead-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-subhead-size: 1.5rem;
+  --cf-type-subhead-weight: 600;
+  --cf-type-subhead-line-height: 1.2;
+  --cf-type-subhead-tracking: -0.02em;
+  --cf-type-card-title-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-card-title-size: 1.125rem;
+  --cf-type-card-title-weight: 600;
+  --cf-type-card-title-line-height: 1.3;
+  --cf-type-card-title-tracking: -0.01em;
+  --cf-type-lead-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-lead-size: 1.25rem;
+  --cf-type-lead-weight: 500;
+  --cf-type-lead-line-height: 1.4;
+  --cf-type-lead-tracking: 0;
+  --cf-type-body-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-body-size: 1rem;
+  --cf-type-body-weight: 400;
+  --cf-type-body-line-height: 1.4;
+  --cf-type-body-tracking: 0;
+  --cf-type-body-sm-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-body-sm-size: 0.875rem;
+  --cf-type-body-sm-weight: 400;
+  --cf-type-body-sm-line-height: 1.4;
+  --cf-type-body-sm-tracking: 0;
+  --cf-type-prose-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-prose-size: 1rem;
+  --cf-type-prose-weight: 400;
+  --cf-type-prose-line-height: 1.6;
+  --cf-type-prose-tracking: 0;
+  --cf-type-button-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-button-size: 1rem;
+  --cf-type-button-weight: 500;
+  --cf-type-button-line-height: 1.375;
+  --cf-type-button-tracking: 0;
+  --cf-type-eyebrow-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-eyebrow-size: 0.75rem;
+  --cf-type-eyebrow-weight: 500;
+  --cf-type-eyebrow-line-height: 1.4;
+  --cf-type-eyebrow-tracking: 0.02em;
+  --cf-type-eyebrow-case: uppercase;
+  --cf-type-badge-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-badge-size: 0.625rem;
+  --cf-type-badge-weight: 500;
+  --cf-type-badge-line-height: 1.4;
+  --cf-type-badge-tracking: 0.02em;
+  --cf-type-badge-case: uppercase;
+  --cf-type-stat-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-type-stat-size: 6.875rem;
+  --cf-type-stat-weight: 800;
+  --cf-type-stat-line-height: 1.2;
+  --cf-type-stat-tracking: -0.04em;
+  --cf-type-fluid-display: clamp(2rem, 1.4rem + 2.4cqi, 2.75rem);
+  --cf-type-fluid-section-h: clamp(1.75rem, 1.3rem + 1.6cqi, 2rem);
+  --cf-type-fluid-subhead: clamp(1.25rem, 1rem + 0.8cqi, 1.5rem);
+  /* The hero is a distinct display style, not a fork of type.display. */
+  --cf-type-fluid-hero: clamp(2.5rem, 1.6rem + 4.2vw, 4.25rem);
+  --cf-type-fluid-stat: clamp(3.5rem, 2rem + 7cqi, 6.875rem);
+
+  /* space */
+  --cf-space-1: 4px;
+  --cf-space-2: 8px;
+  --cf-space-3: 12px;
+  --cf-space-4: 16px;
+  --cf-space-5: 20px;
+  --cf-space-6: 24px;
+  --cf-space-8: 32px;
+  --cf-space-10: 40px;
+  --cf-space-12: 48px;
+  --cf-space-16: 64px;
+  --cf-space-24: 96px;
+
+  /* layout */
+  /* The page gutter. Fluid so the column breathes between viewports instead of jumping. */
+  --cf-layout-gutter: clamp(1rem, 5vw, 2.5rem);
+  /* CONTENT width. Gutters are added on top of it, never eaten out of it. */
+  --cf-layout-max-width: 1280px;
+  --cf-layout-section-y: 96px;
+  /* The ONE vertical padding formula every full-width section uses. Do not invent variants. */
+  --cf-layout-section-pad: clamp(64px, 8vw, 96px);
+  /* Reading column, tuned to Inter. */
+  --cf-layout-measure: clamp(45ch, 60vw, 68ch);
+  /* Headline measure cap. */
+  --cf-layout-measure-h: 18ch;
+  /* One deliberate step wider than the measure. */
+  --cf-layout-popout: clamp(1rem, 4vw, 4rem);
+  /* A bigger step wider, for media. */
+  --cf-layout-feature: clamp(1rem, 8vw, 8rem);
+
+  /* radius */
+  /* Screenshots, inline media, overlay panels. */
+  --cf-radius-sm: 8px;
+  /* Cards. The most common radius in the system. */
+  --cf-radius-md: 12px;
+  /* Large containers, buttons, hero media frames. */
+  --cf-radius-lg: 16px;
+  /* Fully round: buttons and badges. Any value past half the height reads the same. */
+  --cf-radius-pill: 100px;
+  /* The focus ring's own corner. */
+  --cf-radius-focus: 4px;
+
+  /* button */
+  /* Off the 4px scale on purpose - it is what balances 16px/500 text in a pill. */
+  --cf-button-pad-block: 14px;
+  --cf-button-pad-inline: 28px;
+  /* The secondary button's outline. Heavier than a hairline - it is the whole shape. */
+  --cf-button-border-width: 2px;
+  /* Text button rule: 2px thick, 6px below the baseline box, exactly as wide as the text. */
+  --cf-button-underline-offset: 6px;
+
+  /* border */
+  --cf-border-width-hairline: 1px;
+  /* Secondary button outline. */
+  --cf-border-width-strong: 1.5px;
+  /* Blockquote inline-start rule. */
+  --cf-border-width-accent: 3px;
+
+  /* shadow */
+  --cf-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --cf-shadow-default: 0 8px 30px rgba(0, 0, 0, 0.06);
+  /* Form input focus halo. */
+  --cf-shadow-focus-ring: 0 0 0 3px rgba(144, 134, 122, 0.1);
+
+  /* motion */
+  /* easeOutQuint. The house curve - reveals, hovers, lifts. Reach for this first. */
+  --cf-motion-easing-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  /* easeOutCirc. Sliders and diagrams. */
+  --cf-motion-easing-slide: cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* easeInOutCubic. Rotation - the cube. */
+  --cf-motion-easing-turn: cubic-bezier(0.65, 0, 0.35, 1);
+  /* :active transforms. */
+  --cf-motion-duration-instant: 100ms;
+  /* Link colour, arrow nudge. */
+  --cf-motion-duration-fast: 150ms;
+  /* The default UI transition. */
+  --cf-motion-duration-base: 200ms;
+  /* Card hover. */
+  --cf-motion-duration-lift: 250ms;
+  /* Indicators, tab fills. */
+  --cf-motion-duration-slow: 450ms;
+  /* Scroll reveal and hero entrance. */
+  --cf-motion-duration-reveal: 700ms;
+  --cf-motion-reveal-distance: 20px;
+  --cf-motion-reveal-stagger: 60ms;
+  /* Cap the ladder at 4 steps (240ms). Past that it reads as lag, not rhythm. */
+  --cf-motion-reveal-stagger-max: 4;
+
+  /* z */
+  /* Scrims and artwork behind copy. */
+  --cf-z-below: -1;
+  --cf-z-base: 0;
+  /* Copy above a scrim. */
+  --cf-z-raised: 1;
+  --cf-z-sticky: 10;
+  --cf-z-scrim: 999;
+  --cf-z-header: 1000;
+  --cf-z-overlay: 1100;
+  /* The optional site-wide filmic pass. Distinct from shape grain. */
+  --cf-z-grain: 9998;
+}

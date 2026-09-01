@@ -1,0 +1,575 @@
+{
+  "color.blue": {
+    "value": "#435CFF",
+    "type": "color",
+    "description": "The one accent. About three uses per view."
+  },
+  "color.black": {
+    "value": "#000000",
+    "type": "color"
+  },
+  "color.white": {
+    "value": "#FFFFFF",
+    "type": "color"
+  },
+  "color.stone.100": {
+    "value": "#F1EFEA",
+    "type": "color"
+  },
+  "color.stone.200": {
+    "value": "#E4DFD9",
+    "type": "color"
+  },
+  "color.stone.300": {
+    "value": "#D2CAC1",
+    "type": "color"
+  },
+  "color.stone.400": {
+    "value": "#B5ACA0",
+    "type": "color"
+  },
+  "color.stone.500": {
+    "value": "#90867A",
+    "type": "color",
+    "description": "Brand-guide 'Brown'. Labels and dividers - never running body copy, it fails AA at 14px."
+  },
+  "color.sage.300": {
+    "value": "#BCC2AF",
+    "type": "color"
+  },
+  "color.sage.400": {
+    "value": "#9CA28E",
+    "type": "color"
+  },
+  "color.green": {
+    "value": "#686F5C",
+    "type": "color",
+    "description": "STATE ONLY - positive. There is no brand red; this carries 'good'. Never a surface, never decoration. Absent from the Figma homepage by design."
+  },
+  "color.yellow": {
+    "value": "#F8E198",
+    "type": "color",
+    "description": "STATE ONLY - caution. Same rules as green."
+  },
+  "color.accent.hover": {
+    "value": "#3C53E6",
+    "type": "color"
+  },
+  "color.accent.active": {
+    "value": "#374BD1",
+    "type": "color"
+  },
+  "color.accent.focus": {
+    "value": "rgba(67, 92, 255, 0.32)",
+    "type": "color"
+  },
+  "color.accent.disabled": {
+    "value": "rgba(67, 92, 255, 0.38)",
+    "type": "color"
+  },
+  "color.blue-tint.10": {
+    "value": "rgba(67, 92, 255, 0.1)",
+    "type": "color",
+    "description": "The lightest blue wash."
+  },
+  "color.blue-tint.25": {
+    "value": "rgba(67, 92, 255, 0.25)",
+    "type": "color",
+    "description": "Text selection."
+  },
+  "color.surface.page": {
+    "value": "#FFFFFF",
+    "type": "color",
+    "description": "Default page ground."
+  },
+  "color.surface.card": {
+    "value": "#F1EFEA",
+    "type": "color",
+    "description": "Cards, and the warm editorial band."
+  },
+  "color.surface.raised": {
+    "value": "#E4DFD9",
+    "type": "color",
+    "description": "A card sitting on a warm band."
+  },
+  "color.surface.edge": {
+    "value": "#D2CAC1",
+    "type": "color",
+    "description": "Hairlines, rules, logo-wall gaps, and the grain flood colour."
+  },
+  "color.surface.dark": {
+    "value": "#000000",
+    "type": "color",
+    "description": "Footer panel, dark card variants. Never decoration."
+  },
+  "color.text.default": {
+    "value": "#000000",
+    "type": "color"
+  },
+  "color.text.muted": {
+    "value": "#5F5F5F",
+    "type": "color",
+    "description": "A black-ramp shade, deliberately not stone-500. Keeps 14px copy at AA on white and on warm surfaces."
+  },
+  "color.text.on-dark": {
+    "value": "#FFFFFF",
+    "type": "color"
+  },
+  "color.text.on-dark-mut": {
+    "value": "rgba(255, 255, 255, 0.65)",
+    "type": "color"
+  },
+  "color.text.link": {
+    "value": "#435CFF",
+    "type": "color"
+  },
+  "color.border.default": {
+    "value": "rgba(0, 0, 0, 0.08)",
+    "type": "color",
+    "description": "Card outlines. A visible rule uses surface.edge instead."
+  },
+  "color.border.on-dark": {
+    "value": "rgba(255, 255, 255, 0.12)",
+    "type": "color"
+  },
+  "color.iso-potential": {
+    "value": "#E5E9FF",
+    "type": "color",
+    "description": "The ghost cube - potential, not yet realised. The illustration language's other three states are stone.100 (before), blue (activated) and black (edges); see BRAND.md."
+  },
+  "color.grain-fade": {
+    "value": "rgba(242, 240, 236, 0)",
+    "type": "color",
+    "description": "Transparent warm. The far stop of a fade out of a warm surface - a plain transparent shifts hue on the way."
+  },
+  "font.family.sans": {
+    "value": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+    "type": "fontFamilies",
+    "description": "Inter everywhere. Self-hosted variable first; the family is named InterVariable so it cannot collide with a Google Fonts emit."
+  },
+  "font.weight.regular": {
+    "value": "400",
+    "type": "fontWeights"
+  },
+  "font.weight.medium": {
+    "value": "500",
+    "type": "fontWeights"
+  },
+  "font.weight.semibold": {
+    "value": "600",
+    "type": "fontWeights",
+    "description": "Headings. Not 700 - measured in Figma at 44px."
+  },
+  "font.weight.bold": {
+    "value": "700",
+    "type": "fontWeights",
+    "description": "Hero display and article title only."
+  },
+  "font.weight.heavy": {
+    "value": "800",
+    "type": "fontWeights",
+    "description": "Oversized stat numerals only."
+  },
+  "type.display": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "2.75rem",
+      "fontWeight": 600,
+      "lineHeight": "1.2",
+      "letterSpacing": "-0.03em"
+    },
+    "type": "typography",
+    "description": "44px. Page and intro display."
+  },
+  "type.section-h": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "2rem",
+      "fontWeight": 600,
+      "lineHeight": "1.2",
+      "letterSpacing": "-0.03em"
+    },
+    "type": "typography",
+    "description": "32px. Every section heading."
+  },
+  "type.subhead": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "1.5rem",
+      "fontWeight": 600,
+      "lineHeight": "1.2",
+      "letterSpacing": "-0.02em"
+    },
+    "type": "typography",
+    "description": "24px. Panel headings."
+  },
+  "type.card-title": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "1.125rem",
+      "fontWeight": 600,
+      "lineHeight": "1.3",
+      "letterSpacing": "-0.01em"
+    },
+    "type": "typography",
+    "description": "18px."
+  },
+  "type.lead": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "1.25rem",
+      "fontWeight": 500,
+      "lineHeight": "1.4",
+      "letterSpacing": "0"
+    },
+    "type": "typography",
+    "description": "20px. Intro body."
+  },
+  "type.body": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "1rem",
+      "fontWeight": 400,
+      "lineHeight": "1.4",
+      "letterSpacing": "0"
+    },
+    "type": "typography",
+    "description": "16px. The design has no 15px."
+  },
+  "type.body-sm": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "0.875rem",
+      "fontWeight": 400,
+      "lineHeight": "1.4",
+      "letterSpacing": "0"
+    },
+    "type": "typography",
+    "description": "14px. Card copy."
+  },
+  "type.prose": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "1rem",
+      "fontWeight": 400,
+      "lineHeight": "1.6",
+      "letterSpacing": "0"
+    },
+    "type": "typography",
+    "description": "16px at 1.6. Long-form article copy ONLY. Marketing modules use type.body at 1.4 - that is what Figma draws."
+  },
+  "type.button": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "1rem",
+      "fontWeight": 500,
+      "lineHeight": "1.375",
+      "letterSpacing": "0"
+    },
+    "type": "typography",
+    "description": "16px/500, line-height 22px. Buttons are MEDIUM, not semibold - the heavier weight is what made them shout."
+  },
+  "type.eyebrow": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "0.75rem",
+      "fontWeight": 500,
+      "lineHeight": "1.4",
+      "letterSpacing": "0.02em",
+      "textCase": "uppercase"
+    },
+    "type": "typography",
+    "description": "12px. The CF signature element."
+  },
+  "type.badge": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "0.625rem",
+      "fontWeight": 500,
+      "lineHeight": "1.4",
+      "letterSpacing": "0.02em",
+      "textCase": "uppercase"
+    },
+    "type": "typography",
+    "description": "10px. Pill labels."
+  },
+  "type.stat": {
+    "value": {
+      "fontFamily": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+      "fontSize": "6.875rem",
+      "fontWeight": 800,
+      "lineHeight": "1.2",
+      "letterSpacing": "-0.04em"
+    },
+    "type": "typography",
+    "description": "110px. One hero moment per page, never a 4-up strip."
+  },
+  "type-fluid.display": {
+    "value": "clamp(2rem, 1.4rem + 2.4cqi, 2.75rem)",
+    "type": "sizing"
+  },
+  "type-fluid.section-h": {
+    "value": "clamp(1.75rem, 1.3rem + 1.6cqi, 2rem)",
+    "type": "sizing"
+  },
+  "type-fluid.subhead": {
+    "value": "clamp(1.25rem, 1rem + 0.8cqi, 1.5rem)",
+    "type": "sizing"
+  },
+  "type-fluid.hero": {
+    "value": "clamp(2.5rem, 1.6rem + 4.2vw, 4.25rem)",
+    "type": "sizing",
+    "description": "The hero is a distinct display style, not a fork of type.display."
+  },
+  "type-fluid.stat": {
+    "value": "clamp(3.5rem, 2rem + 7cqi, 6.875rem)",
+    "type": "sizing"
+  },
+  "space.1": {
+    "value": "4px",
+    "type": "sizing"
+  },
+  "space.2": {
+    "value": "8px",
+    "type": "sizing"
+  },
+  "space.3": {
+    "value": "12px",
+    "type": "sizing"
+  },
+  "space.4": {
+    "value": "16px",
+    "type": "sizing"
+  },
+  "space.5": {
+    "value": "20px",
+    "type": "sizing"
+  },
+  "space.6": {
+    "value": "24px",
+    "type": "sizing"
+  },
+  "space.8": {
+    "value": "32px",
+    "type": "sizing"
+  },
+  "space.10": {
+    "value": "40px",
+    "type": "sizing"
+  },
+  "space.12": {
+    "value": "48px",
+    "type": "sizing"
+  },
+  "space.16": {
+    "value": "64px",
+    "type": "sizing"
+  },
+  "space.24": {
+    "value": "96px",
+    "type": "sizing"
+  },
+  "layout.gutter": {
+    "value": "clamp(1rem, 5vw, 2.5rem)",
+    "type": "sizing",
+    "description": "The page gutter. Fluid so the column breathes between viewports instead of jumping."
+  },
+  "layout.max-width": {
+    "value": "1280px",
+    "type": "sizing",
+    "description": "CONTENT width. Gutters are added on top of it, never eaten out of it."
+  },
+  "layout.section-y": {
+    "value": "96px",
+    "type": "sizing"
+  },
+  "layout.section-pad": {
+    "value": "clamp(64px, 8vw, 96px)",
+    "type": "sizing",
+    "description": "The ONE vertical padding formula every full-width section uses. Do not invent variants."
+  },
+  "layout.measure": {
+    "value": "clamp(45ch, 60vw, 68ch)",
+    "type": "sizing",
+    "description": "Reading column, tuned to Inter."
+  },
+  "layout.measure-h": {
+    "value": "18ch",
+    "type": "sizing",
+    "description": "Headline measure cap."
+  },
+  "layout.popout": {
+    "value": "clamp(1rem, 4vw, 4rem)",
+    "type": "sizing",
+    "description": "One deliberate step wider than the measure."
+  },
+  "layout.feature": {
+    "value": "clamp(1rem, 8vw, 8rem)",
+    "type": "sizing",
+    "description": "A bigger step wider, for media."
+  },
+  "radius.sm": {
+    "value": "8px",
+    "type": "sizing",
+    "description": "Screenshots, inline media, overlay panels."
+  },
+  "radius.md": {
+    "value": "12px",
+    "type": "sizing",
+    "description": "Cards. The most common radius in the system."
+  },
+  "radius.lg": {
+    "value": "16px",
+    "type": "sizing",
+    "description": "Large containers, buttons, hero media frames."
+  },
+  "radius.pill": {
+    "value": "100px",
+    "type": "sizing",
+    "description": "Fully round: buttons and badges. Any value past half the height reads the same."
+  },
+  "radius.focus": {
+    "value": "4px",
+    "type": "sizing",
+    "description": "The focus ring's own corner."
+  },
+  "button.pad-block": {
+    "value": "14px",
+    "type": "sizing",
+    "description": "Off the 4px scale on purpose - it is what balances 16px/500 text in a pill."
+  },
+  "button.pad-inline": {
+    "value": "28px",
+    "type": "sizing"
+  },
+  "button.border-width": {
+    "value": "2px",
+    "type": "sizing",
+    "description": "The secondary button's outline. Heavier than a hairline - it is the whole shape."
+  },
+  "button.underline-offset": {
+    "value": "6px",
+    "type": "sizing",
+    "description": "Text button rule: 2px thick, 6px below the baseline box, exactly as wide as the text."
+  },
+  "border-width.hairline": {
+    "value": "1px",
+    "type": "sizing"
+  },
+  "border-width.strong": {
+    "value": "1.5px",
+    "type": "sizing",
+    "description": "Secondary button outline."
+  },
+  "border-width.accent": {
+    "value": "3px",
+    "type": "sizing",
+    "description": "Blockquote inline-start rule."
+  },
+  "shadow.sm": {
+    "value": "0 1px 2px rgba(0, 0, 0, 0.04)",
+    "type": "boxShadow"
+  },
+  "shadow.default": {
+    "value": "0 8px 30px rgba(0, 0, 0, 0.06)",
+    "type": "boxShadow"
+  },
+  "shadow.focus-ring": {
+    "value": "0 0 0 3px rgba(144, 134, 122, 0.1)",
+    "type": "boxShadow",
+    "description": "Form input focus halo."
+  },
+  "motion.easing.standard": {
+    "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "type": "other",
+    "description": "easeOutQuint. The house curve - reveals, hovers, lifts. Reach for this first."
+  },
+  "motion.easing.slide": {
+    "value": "cubic-bezier(0.075, 0.82, 0.165, 1)",
+    "type": "other",
+    "description": "easeOutCirc. Sliders and diagrams."
+  },
+  "motion.easing.turn": {
+    "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+    "type": "other",
+    "description": "easeInOutCubic. Rotation - the cube."
+  },
+  "motion.duration.instant": {
+    "value": "100ms",
+    "type": "other",
+    "description": ":active transforms."
+  },
+  "motion.duration.fast": {
+    "value": "150ms",
+    "type": "other",
+    "description": "Link colour, arrow nudge."
+  },
+  "motion.duration.base": {
+    "value": "200ms",
+    "type": "other",
+    "description": "The default UI transition."
+  },
+  "motion.duration.lift": {
+    "value": "250ms",
+    "type": "other",
+    "description": "Card hover."
+  },
+  "motion.duration.slow": {
+    "value": "450ms",
+    "type": "other",
+    "description": "Indicators, tab fills."
+  },
+  "motion.duration.reveal": {
+    "value": "700ms",
+    "type": "other",
+    "description": "Scroll reveal and hero entrance."
+  },
+  "motion.reveal.distance": {
+    "value": "20px",
+    "type": "sizing"
+  },
+  "motion.reveal.stagger": {
+    "value": "60ms",
+    "type": "other"
+  },
+  "motion.reveal.stagger-max": {
+    "value": "4",
+    "type": "other",
+    "description": "Cap the ladder at 4 steps (240ms). Past that it reads as lag, not rhythm."
+  },
+  "z.below": {
+    "value": "-1",
+    "type": "other",
+    "description": "Scrims and artwork behind copy."
+  },
+  "z.base": {
+    "value": "0",
+    "type": "other"
+  },
+  "z.raised": {
+    "value": "1",
+    "type": "other",
+    "description": "Copy above a scrim."
+  },
+  "z.sticky": {
+    "value": "10",
+    "type": "other"
+  },
+  "z.scrim": {
+    "value": "999",
+    "type": "other"
+  },
+  "z.header": {
+    "value": "1000",
+    "type": "other"
+  },
+  "z.overlay": {
+    "value": "1100",
+    "type": "other"
+  },
+  "z.grain": {
+    "value": "9998",
+    "type": "other",
+    "description": "The optional site-wide filmic pass. Distinct from shape grain."
+  }
+}

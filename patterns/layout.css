@@ -1,0 +1,144 @@
+/* Creative Force spatial layout system.
+ *
+ * ONE grid every page and component snaps to. The default is a centered,
+ * measure-capped reading column; breakouts are deliberate punctuation above it.
+ *
+ * Platform-neutral by construction:
+ *   - zero specificity, everything wrapped in :where(), so it survives any
+ *     host cascade (a CMS's rich text, a component library) without !important
+ *   - logical properties throughout, so it is RTL/EMEA-safe
+ *   - the subgrid tail is @supports-guarded with an identical-tracks fallback
+ *
+ * Requires tokens/dist/tokens.css. Load that first.
+ *
+ * Width vocabulary is a DATA ATTRIBUTE, not a class - it maps 1:1 to a CMS
+ * choice field and stays out of the className soup:
+ *
+ *   <div class="layout">
+ *     <p>…</p>                        content  (default, measure-capped)
+ *     <figure data-w="popout">…        popout   one step wider
+ *     <figure data-w="feature">…       feature  a bigger step, for media
+ *     <div    data-w="full">…          full     gutter to gutter
+ *   </div>
+ */
+
+/* Optical centering: reserve the scrollbar gutter so the column never shifts
+   when content height crosses the viewport. */
+:where(html) {
+  scrollbar-gutter: stable;
+}
+
+/* The named-line track system, stored once so the subgrid fallback can
+   re-declare the identical tracks. */
+:where(.layout),
+:where(.layout__band) {
+  --gutter: var(--cf-layout-gutter, clamp(1rem, 5vw, 2.5rem));
+  --measure: var(--cf-layout-measure, clamp(45ch, 60vw, 68ch));
+  --pop: var(--cf-layout-popout, clamp(1rem, 4vw, 4rem));
+  --feat: var(--cf-layout-feature, clamp(1rem, 8vw, 8rem));
+
+  --cf-grid-cols:
+    [full-start] minmax(var(--gutter), 1fr)
+    [feature-start] minmax(0, var(--feat))
+    [popout-start] minmax(0, var(--pop))
+    [content-start] min(var(--measure), 100% - var(--gutter) * 2) [content-end]
+    minmax(0, var(--pop)) [popout-end]
+    minmax(0, var(--feat)) [feature-end]
+    minmax(var(--gutter), 1fr) [full-end];
+}
+
+:where(.layout) {
+  display: grid;
+  grid-template-columns: var(--cf-grid-cols);
+}
+
+/* Default: everything is centered and readable. Opt OUT to go wide. */
+:where(.layout > *) { grid-column: content; }
+:where(.layout > [data-w='popout']) { grid-column: popout; }
+:where(.layout > [data-w='feature']) { grid-column: feature; }
+:where(.layout > [data-w='full']) { grid-column: full; }
+
+/* Vertical rhythm between flow children - traces to the space scale. */
+:where(.layout > * + *) {
+  margin-block-start: var(--cf-flow, var(--cf-space-6, 1.5rem));
+}
+
+/* Defensive CSS - survives real authors (a huge image, a 90-character URL, a
+   nested embed). min-inline-size: 0 is what stops grid blowout. */
+:where(.layout) > * { min-inline-size: 0; }
+:where(.layout) :is(img, video, iframe, svg) {
+  max-inline-size: 100%;
+  block-size: auto;
+  display: block;
+}
+:where(.layout) [data-w='full'] :is(img, video) { inline-size: 100%; }
+:where(.layout) :is(h1, h2, h3) { text-wrap: balance; }
+:where(.layout) p { text-wrap: pretty; hyphens: auto; }
+:where(.layout) :is(a, code) { overflow-wrap: anywhere; }
+
+/* Full-bleed band that returns its inner content to the reading column.
+   One track system top to bottom, so a coloured band's children re-use
+   content / popout / feature and line up with everything above it. */
+:where(.layout__band) {
+  grid-column: full;
+  display: grid;
+}
+@supports (grid-template-columns: subgrid) {
+  :where(.layout__band) { grid-template-columns: subgrid; }
+}
+@supports not (grid-template-columns: subgrid) {
+  :where(.layout__band) { grid-template-columns: var(--cf-grid-cols); }
+}
+:where(.layout__band > *) { grid-column: content; }
+:where(.layout__band > [data-w='popout']) { grid-column: popout; }
+:where(.layout__band > [data-w='feature']) { grid-column: feature; }
+:where(.layout__band > [data-w='full']) { grid-column: full; }
+
+/* ---------------------------------------------------------------------------
+   Helpers - opt-in, not part of the grid
+   --------------------------------------------------------------------------- */
+
+/* Marketing shell: a wide centered container for non-prose sections.
+   The single source for page container width + gutter.
+   Note the width is the CONTENT width - the gutter is added on top of it,
+   never eaten out of it. Sections that add their own padding-inline end up
+   narrower than their neighbours and the rows visibly disagree. */
+:where(.cf-shell) {
+  inline-size: 100%;
+  max-inline-size: var(--cf-layout-max-width, 1280px);
+  margin-inline: auto;
+  padding-inline: var(--cf-layout-gutter, clamp(1rem, 5vw, 2.5rem));
+}
+
+/* The one vertical rhythm for a full-width section. Don't invent variants. */
+:where(.cf-section) {
+  padding-block: var(--cf-layout-section-pad, clamp(64px, 8vw, 96px));
+}
+
+/* Container-aware component shell - respond to your OWN inline size, not the
+   viewport, so the same component works in a sidebar and full bleed.
+   container-type must sit on a PARENT, never on the element whose own grid
+   you switch: the query would then read the post-switch size and oscillate. */
+@supports (container-type: inline-size) {
+  :where(.cf-cq) { container-type: inline-size; }
+}
+
+/* RAM card row - auto-fit, never overflows, items never blow out. */
+:where(.cf-ram) {
+  display: grid;
+  gap: var(--cf-grid-gap, var(--cf-space-6, 1.5rem));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+:where(.cf-ram) > * { min-inline-size: 0; }
+
+/* Reserve space for media so wide images never cause layout shift.
+   Set --ar from the image's intrinsic w/h. */
+:where(.cf-media) {
+  aspect-ratio: var(--ar, 16 / 9);
+  overflow: hidden;
+}
+:where(.cf-media) > :is(img, video) {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}

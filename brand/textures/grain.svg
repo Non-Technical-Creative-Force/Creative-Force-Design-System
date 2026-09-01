@@ -1,0 +1,15 @@
+<!-- Creative Force film grain. Warm #D2CAC1 discrete speckle, 600x600 tile.
+     BRAND RULE: inside shapes and illustrations only - clip or mask it to a
+     shape's bounds. NEVER a section, page or site-wide background. -->
+<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'>
+  <filter id='g' x='0' y='0' width='100%' height='100%'>
+    <feTurbulence type='fractalNoise' baseFrequency='1 1' numOctaves='3' seed='905' stitchTiles='stitch' result='n'/>
+    <feColorMatrix in='n' type='luminanceToAlpha' result='a'/>
+    <feComponentTransfer in='a' result='d'>
+      <feFuncA type='discrete' tableValues='0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 '/>
+    </feComponentTransfer>
+    <feFlood flood-color='#D2CAC1' result='f'/>
+    <feComposite operator='in' in='f' in2='d'/>
+  </filter>
+  <rect width='100%' height='100%' filter='url(#g)'/>
+</svg>

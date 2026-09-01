@@ -1,0 +1,19 @@
+{
+  "name": "creative-force-design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Creative Force design system - tech-stack-agnostic tokens, brand assets and agent skills.",
+  "type": "module",
+  "exports": {
+    "./tokens": "./tokens/dist/tokens.js",
+    "./tokens.css": "./tokens/dist/tokens.css",
+    "./tailwind.css": "./tokens/dist/tailwind.css",
+    "./layout.css": "./patterns/layout.css"
+  },
+  "scripts": {
+    "build": "node tokens/build.mjs",
+    "test": "node --test tokens/build.test.mjs",
+    "check": "npm run build && npm test && git diff --quiet -- tokens/dist || (echo 'tokens/dist is stale - commit the rebuild' && exit 1)"
+  },
+  "engines": { "node": ">=20" }
+}
