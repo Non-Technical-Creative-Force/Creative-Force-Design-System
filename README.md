@@ -16,6 +16,33 @@ Read DESIGN.md in this folder, then build me a landing page hero.
 starts from real Creative Force constraints instead of generic defaults. That one
 prompt is genuinely all you need — everything below is detail.
 
+## First: get this folder onto your computer
+
+Already have the folder? Skip to the next section.
+
+### The easy way — Download ZIP (no tools needed)
+
+1. Open this page in your browser:
+   **github.com/Non-Technical-Creative-Force/Creative-Force-Design-System**
+2. Click the green **<> Code** button (top right of the file list).
+3. Click **Download ZIP**.
+4. Open your **Downloads** folder and double-click the ZIP — it unpacks into a
+   folder called `Creative-Force-Design-System-main`.
+5. Move that folder somewhere permanent, like **Documents**. (The skills you
+   install below link to this folder — if you move or delete it later, just run
+   the install again from its new home.)
+
+A ZIP is a snapshot — to get updates later, download it again and re-run the
+install.
+
+### The developer way — git
+
+```bash
+git clone https://github.com/Non-Technical-Creative-Force/Creative-Force-Design-System.git
+```
+
+`git pull` gets updates, and the installed skills pick them up automatically.
+
 ## One-time setup: teach Claude the brand
 
 Install the two Creative Force skills once, and **every** Claude Code session on
