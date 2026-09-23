@@ -160,6 +160,7 @@ desaturated red, and that is chrome, not brand.
 - **Sizes:** 10, 12, 14, 16, 18, 20, 24, 32, 44, 110px
 - **Line height:** 1.2, 1.3, 1.375, 1.4, 1.6
 - **Letter spacing:** −0.03em at 44/32px, −0.02em at 24px, −0.01em at 18px, −0.04em at 110px, +0.02em on 12/10px uppercase
+- **Code:** the one exception to a single typeface. Commands and code a reader copies character by character use the system monospace stack at the size around them, so 0/O and 1/l stay apart. No brand monospace, no webfont · `--cf-font-family-mono`
 - **OpenType features:** `"cv01" on`, contextual ligatures, `font-optical-sizing: auto`
 - **Role:** Never set `font-variation-settings` on `:root` — it is inherited and applied after `font-weight`, so a `wght` there silently flattens every bold under it. Use `font-weight`. For container-responsive components use `--cf-type-fluid-*` (resolves against the component's own container via `cqi`, so the same component works in a sidebar and full-bleed without a media query).
 
@@ -476,6 +477,7 @@ instead of pasting; the copies here exist so this document works standalone.
 
   /* Typography — Font Family & Weights */
   --cf-font-family-sans: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --cf-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
   --cf-font-weight-regular: 400;
   --cf-font-weight-medium: 500;
   --cf-font-weight-semibold: 600;
@@ -653,6 +655,7 @@ instead of pasting; the copies here exist so this document works standalone.
 
   /* Fonts -> font-cf-sans, font-cf-semibold */
   --font-cf-sans: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-cf-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
   --font-weight-cf-regular: 400;
   --font-weight-cf-medium: 500;
   --font-weight-cf-semibold: 600;

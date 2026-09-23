@@ -147,6 +147,11 @@
     "type": "fontFamilies",
     "description": "Inter everywhere. Self-hosted variable first; the family is named InterVariable so it cannot collide with a Google Fonts emit."
   },
+  "font.family.mono": {
+    "value": "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace",
+    "type": "fontFamilies",
+    "description": "Code, commands and anything a reader copies character by character. System fonts only: no brand monospace exists, and loading a webfont for a few lines of code is not worth the weight."
+  },
   "font.weight.regular": {
     "value": "400",
     "type": "fontWeights"
