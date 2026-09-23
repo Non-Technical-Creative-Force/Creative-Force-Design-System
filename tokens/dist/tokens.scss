@@ -38,6 +38,7 @@ $cf-color-grain-fade: rgba(242, 240, 236, 0);
 
 // font
 $cf-font-family-sans: InterVariable, Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+$cf-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
 $cf-font-weight-regular: 400;
 $cf-font-weight-medium: 500;
 $cf-font-weight-semibold: 600;
@@ -218,6 +219,7 @@ $cf-z-grain: 9998;
   --cf-color-iso-potential: #{$cf-color-iso-potential};
   --cf-color-grain-fade: #{$cf-color-grain-fade};
   --cf-font-family-sans: #{$cf-font-family-sans};
+  --cf-font-family-mono: #{$cf-font-family-mono};
   --cf-font-weight-regular: #{$cf-font-weight-regular};
   --cf-font-weight-medium: #{$cf-font-weight-medium};
   --cf-font-weight-semibold: #{$cf-font-weight-semibold};
